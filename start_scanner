@@ -2,4 +2,5 @@
 
 python3 setup.py build sdist
 docker build -t brscan --build-arg BRSCAN_DEB="brscan4-0.4.11-1.amd64.deb" .
-screen -S brotherscan docker run --rm   -v $HOME/brscan:/output -v $(pwd)/brother-scan.yaml:/brother-scan.yaml   -e SCANNER_MODEL=MFC-L2700DW -e SCANNER_IP=192.168.123.114   -e ADVERTISE_IP=192.168.123.101 -p 54925:54925/udp   brscan
+screen -dmS brotherscan docker run --rm --name brscan  -v $HOME/brscan:/output -v $(pwd)/brother-scan.yaml:/brother-scan.yaml   -e SCANNER_MODEL=MFC-L2700DW -e SCANNER_IP=192.168.123.114   -e ADVERTISE_IP=192.168.123.101 -p 54925:54925/udp   brscan
+docker ps | grep brscan
