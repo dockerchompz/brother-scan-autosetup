@@ -37,7 +37,7 @@ To run brscand with the following setup:
 
 * MFC-L2700DW scanner.
 * Scanner at IP address 192.168.123.114.
-* Host OS at IP address 192.168.0.101.
+* Host OS at IP address 192.168.123.101.
 * Brscan version 4-0.4.11-1
 * Output written to $HOME/brscan
 
