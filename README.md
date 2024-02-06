@@ -13,7 +13,7 @@ provided here.
 * Docker installed.
 * The latest proprietary brscan4 deb from Brother
   * I had to go through their 'Downloads' page for my device (https://support.brother.com/g/b/productsearch.aspx?c=us&lang=en&content=dl)
-  * The Dockerfile defaults to the deb name `brscan4-0.4.9-1.amd64.deb`
+  * The Dockerfile defaults to the deb name `brscan4-0.4.11-1.amd64.deb`
 
 ### Build image
 
@@ -36,64 +36,15 @@ Edit `brother-scan.yaml` according to your preferences.
 To run brscand with the following setup:
 
 * MFC-L2700DW scanner.
-* Scanner at IP address 192.168.0.10.
-* Host OS at IP address 192.168.0.100.
+* Scanner at IP address 192.168.123.114.
+* Host OS at IP address 192.168.0.101.
+* Brscan version 4-0.4.11-1
 * Output written to $HOME/brscan
 
 ```sh
-docker run --rm \
-  -v $HOME/brscan:/output -v $(pwd)/brother-scan.yaml:/brother-scan.yaml \
-  -e SCANNER_MODEL=MFC-L2700DW -e SCANNER_IP=192.168.0.10 \
-  -e ADVERTISE_IP=192.168.0.100 -p 54925:54925/udp \
-  brscan
+chmod +x start_scanner
+./start_scanner
 ```
-
-## Running on host OS
-
-If you for some reason want to run it directly on your Linux host OS, that
-might also be possible.  It probably need to be Ubuntu, Debian, RedHat or something like that to make it work.
-
-### Python Virtual Environment
-
-It is recommanded to use venv (Python Virtual Environment) to install the
-required Python modules.
-
-### Requirements
-
-In order for this to work, host OS must have the following installed (assuming
-Debian)
-
-* sane and sane-utils packages (`scanimage` and `scanadf` commands)
-* poppler-utils package (`pdfunite` command)
-* libusb-0.1-4 package (`libusb-0.1.so.4` library)
-* brscan4 (brscan4-0.4.4-1.amd64.deb can be fetched from Brother)
-
-### Installation
-
-```python
-python3 -m venv .
-./bin/pip install -r requirements.txt
-python3 setup.py install
-```
-
-### Configuration
-
-Run `brsaneconfig4` to configure the scanner.  Example configuring MFC-L2700DW
-scanner with IP address 192.168.0.100:
-
-```sh
-brsaneconfig4 -a name="Brother" model="MFC-L2700DW" ip="192.168.0.100"
-```
-
-Edit `brother-scan.yaml` according to your preferences.
-
-### Run
-
-Now you just need to run the brscand daemon.  Example running on host with IP
-192.168.0.10 and scanner with IP address 192.168.0.100:
-
-```sh
-brscand 192.168.0.100 192.168.0.10
 ```
 
 ## Uselinks
