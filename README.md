@@ -8,12 +8,15 @@ Behavior on other versions might be different.
 
 ## Before setting up:
 - Be root
+
+- Run:
 ```
 apt-get -y upgrade; apt-get -y update;
 apt-get -y screen;
 ```
 
 ## Install docker (if not installed already) (These commands are all copy-pastable)
+- Run:
 ```
 apt-get -y upgrade; apt-get -y update;
 apt-get install -y ca-certificates curl;
@@ -41,7 +44,8 @@ chmod +x start_scanner
 ### Notice:
 - Change the brscan version in the start_scanner file to the version available (if applicable)
 - Change the IP addresses in the start_scanner file depending on your network configuration
+- Configuration file can be found as "brother-scan.yaml"
 
 ## For issues:
 - Create an issue on the repo
-- contact me on telegram: @dockerchompz
+- Contact me on telegram: @dockerchompz
