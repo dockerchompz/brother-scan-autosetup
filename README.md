@@ -38,3 +38,10 @@ chmod +x start_scanner
 ./start_scanner
 ```
 
+### Notice:
+- Change the brscan version in the start_scanner file to the version available (if applicable)
+- Change the IP addresses in the start_scanner file depending on your network configuration
+
+## For issues:
+- Create an issue on the repo
+- contact me on telegram: @dockerchompz
