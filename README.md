@@ -48,4 +48,4 @@ chmod +x start_scanner
 
 ## For issues:
 - Create an issue on the repo
-- Contact me on telegram: @dockerchompz
+- Contact me on telegram: @vosologie
